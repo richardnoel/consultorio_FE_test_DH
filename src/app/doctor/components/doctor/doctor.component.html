@@ -1,1 +1,16 @@
-<p>doctor works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ doctor.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{ doctor.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="crop-image">
+      <img [src]="getImage(doctor.photo)" alt="">
+    </div>
+    <mat-card-content>
+      <p>Registro Medico:  {{ doctor.medicalRegister }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-raised-button [routerLink]="['/doctors', doctor.doctorId]">Ver detalle</a>
+      <!-- <button (click)="addCart()" mat-raised-button color="primary">Agregar al carrito</button> -->
+    </mat-card-actions>
+  </mat-card>

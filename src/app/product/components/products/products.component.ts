@@ -63,7 +63,7 @@ export class ProductsComponent implements OnInit {
   ) {   }
 
   ngOnInit() {
-    this.fetchDoctor();
+    //this.fetchDoctor();
   }
 
   clickProduct(id: number) {

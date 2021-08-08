@@ -1,1 +1,8 @@
-<p>doctors works!</p>
+<div class="product-grid">
+    <app-doctor
+      *ngFor="let doctor of doctors"
+      (doctorClicked)="clickDoctor($event)"
+      [doctor]="doctor">
+    </app-doctor>
+  </div>
+  

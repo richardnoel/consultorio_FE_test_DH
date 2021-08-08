@@ -20,20 +20,45 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
-        path: 'products',
-        canActivate: [AdminGuard],
-        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
-      },
-      {
         path: 'contact',
         canActivate: [AdminGuard],
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
       },
       {
-        path: 'demo',
+        path: 'products',
         canActivate: [AdminGuard],
-        loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
       },
+
+      
+      
+      {
+        path: 'doctores',
+        canActivate: [AdminGuard],
+        loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule)
+      },
+      {
+        path: 'pacientes',
+        canActivate: [AdminGuard],
+        loadChildren: () => import('./paciente/paciente.module').then(m => m.PacienteModule)
+      },
+      {
+        path: 'historiales',
+        canActivate: [AdminGuard],
+        loadChildren: () => import('./historial/historial.module').then(m => m.HistorialModule)
+      },
+      {
+        path: 'consultas',
+        canActivate: [AdminGuard],
+        loadChildren: () => import('./consulta/consulta.module').then(m => m.ConsultaModule)
+      },
+      {
+        path: 'recetas',
+        canActivate: [AdminGuard],
+        loadChildren: () => import('./receta/receta.module').then(m => m.RecetaModule)
+      }
+      
+
     ]
   },
   {
