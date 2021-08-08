@@ -20,7 +20,7 @@ export class DoctorComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCard() {
+  nuevaConsulta() {
     this.doctorClicked.emit(this.doctor.doctorId);
   }
 

@@ -1,1 +1,26 @@
-<p>doctor-detail works!</p>
+<div *ngIf="doctor">
+  <mat-card>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="box-row">
+          <div class="crop-image">
+            <img [src]="getImage(doctor.photo)" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <div class="box-row">
+          <mat-card-header>
+            <mat-card-title>Nombre(s): {{ doctor.firstName }}</mat-card-title>
+            <mat-card-title>Apellido(s): {{ doctor.lastName }}</mat-card-title>
+            <mat-card-title>Domicilio(s): {{ doctor.address}}</mat-card-title>
+            <mat-card-title>Correo: {{ doctor.email }}</mat-card-title>
+            <mat-card-title>Celular: {{ doctor.cellNumber }}</mat-card-title>
+            <mat-card-title>Telefono: {{ doctor.phoneNumber }}</mat-card-title>
+            <mat-card-title>Especialidad: {{ doctor.speciality }}</mat-card-title>
+          </mat-card-header>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

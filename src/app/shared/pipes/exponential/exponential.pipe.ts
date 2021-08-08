@@ -9,4 +9,11 @@ export class ExponentialPipe implements PipeTransform {
     return Math.pow(value, 2);
   }
 
+  toImage(value: string):any{
+    let result:string = "";
+    if(value){
+      result = "data:image/png;base64,"+value;
+    }
+    return result;
+  }
 }

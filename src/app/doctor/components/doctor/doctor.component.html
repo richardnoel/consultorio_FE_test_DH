@@ -1,16 +1,16 @@
 <mat-card>
     <mat-card-header>
-      <mat-card-title>{{ doctor.firstName}}</mat-card-title>
-      <mat-card-subtitle>{{ doctor.lastName}}</mat-card-subtitle>
+      <mat-card-title>{{doctor.firstName}} {{doctor.lastName}} </mat-card-title>
+      <mat-card-subtitle>{{doctor.speciality}}</mat-card-subtitle>
     </mat-card-header>
     <div class="crop-image">
       <img [src]="getImage(doctor.photo)" alt="">
     </div>
-    <mat-card-content>
+    <!-- <mat-card-content>
       <p>Registro Medico:  {{ doctor.medicalRegister }}</p>
-    </mat-card-content>
+    </mat-card-content> -->
     <mat-card-actions>
-      <a mat-raised-button [routerLink]="['/doctors', doctor.doctorId]">Ver detalle</a>
-      <!-- <button (click)="addCart()" mat-raised-button color="primary">Agregar al carrito</button> -->
+      <a mat-raised-button [routerLink]="['/doctores', doctor.doctorId]">Ver detalle</a>
+      <button (click)="nuevaConsulta()" mat-raised-button color="primary">Pedir Consulta</button>
     </mat-card-actions>
   </mat-card>
