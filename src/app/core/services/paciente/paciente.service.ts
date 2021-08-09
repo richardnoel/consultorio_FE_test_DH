@@ -21,4 +21,13 @@ export class PacienteService {
   getPacientByName(name:string){
     return this.http.get<Paciente[]>( environment.url_api + '/patients/name/'+ name);
   }
+
+  createPaciente(paciente: Paciente){
+    return this.http.post<Paciente>( environment.url_api + '/patients/save', paciente);
+  }
+
+  removePaciente(id:number){
+    return this.http.delete<boolean>( environment.url_api + '/patients/delete/'+id);
+  }
+
 }

@@ -8,8 +8,9 @@ import { PacienteService } from 'src/app/core/services/paciente/paciente.service
   styleUrls: ['./pacientes.component.scss']
 })
 export class PacientesComponent implements OnInit {
-  displayedColumns:string[] = ['idPaciente','documentNumber', 'firstName', 'lastName', 'cellNumber', 'actions'];
+  displayedColumns:string[] = ['idPaciente','documentNumber', 'firstName', 'lastName', 'cellNumber', 'actions1','actions2'];
   pacientes: Paciente[] = [];
+  paciente: Paciente;
   searchValue = '';
   constructor(
     private pacienteService: PacienteService
@@ -38,6 +39,34 @@ export class PacientesComponent implements OnInit {
     this.pacienteService.getAllPacientes().subscribe(pacientes =>{
       this.pacientes = pacientes;
       console.log(this.pacientes);
+    });
+  }
+
+  removePaciente( id:number){
+    this.pacienteService.removePaciente(id).subscribe(response =>{
+      if(response){
+        this.fetchPaciente();
+      }
+    });
+  }
+
+  createPaciente(){
+    const paciente: Paciente = {
+        "patientId": null,
+        "documentNumber": 6543212,
+        "firstName": "JOSE",
+        "lastName": "DURAN",
+        "birthDate": "1995-11-05",
+        "address": "Zona Copacabana",
+        "photo": null,
+        "email": "jose@correo.com",
+        "cellNumber": "78654132",
+        "phoneNumber": null    
+    };
+
+    this.pacienteService.createPaciente(paciente).subscribe(paciente =>{
+      this.paciente = paciente;
+      this.fetchPaciente();
     });
   }
 

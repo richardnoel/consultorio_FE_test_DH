@@ -11,6 +11,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PacienteModule } from '../paciente/paciente.module';
+import { DoctorModule } from '../doctor/doctor.module';
+import { ConsultaModule } from '../consulta/consulta.module';
 
 
 
@@ -25,7 +28,10 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    PacienteModule,
+    DoctorModule,
+    ConsultaModule
   ]
 })
 export class AdminModule { }
