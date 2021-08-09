@@ -39,13 +39,14 @@ export class PacienteDetailComponent implements OnInit {
         this.historial = this.historialList[0];
         let description: string = this.historial.history;
         setTimeout(function () {
+          let editorEl = document.getElementById('editor');
+          editorEl.innerHTML = description;
           var quill = new Quill('#editor', {
-            debug: 'info',
             placeholder: 'Compose an epic...',
             readOnly: true,
             theme: 'snow'
           });
-          quill.setText(description);
+          //quill.setText(description);
         }, 1000);
       }
     });

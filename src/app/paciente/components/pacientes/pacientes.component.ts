@@ -8,9 +8,9 @@ import { PacienteService } from 'src/app/core/services/paciente/paciente.service
   styleUrls: ['./pacientes.component.scss']
 })
 export class PacientesComponent implements OnInit {
-  displayedColumns:string[] = ['documentNumber', 'firstName', 'lastName', 'cellNumber', 'actions'];
+  displayedColumns:string[] = ['idPaciente','documentNumber', 'firstName', 'lastName', 'cellNumber', 'actions'];
   pacientes: Paciente[] = [];
-
+  searchValue = '';
   constructor(
     private pacienteService: PacienteService
   ) { }
@@ -20,7 +20,18 @@ export class PacientesComponent implements OnInit {
   }
 
   clickPaciente(id:number){
+    
+  }
 
+  searchName(){
+    if(this.searchValue){
+      this.pacienteService.getPacientByName(this.searchValue).subscribe(pacientes =>{
+        this.pacientes = pacientes;
+        console.log(this.pacientes);
+      });
+    }else if(this.searchValue == ''){
+      this.fetchPaciente();
+    }
   }
 
   fetchPaciente(){

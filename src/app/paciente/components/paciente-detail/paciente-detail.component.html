@@ -1,36 +1,61 @@
 <div *ngIf="historial">
-    <mat-card>
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="box-row">
-            <div class="crop-image">
-              <img *ngIf="historial.patient.photo" [src]="getImage(historial.patient.photo)" alt="" />
-              <img src="assets/images/no-image.png" alt="">
-            </div>
+  <mat-card>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="box-row">
+          <div class="crop-image">
+            <img
+              *ngIf="historial.patient.photo"
+              [src]="getImage(historial.patient.photo)"
+              alt=""
+            />
+            <img src="assets/images/no-image.png" alt="" />
           </div>
         </div>
-        <div class="col-xs-8">
-          <div class="box-row">
-            <mat-card-header>
-              <mat-card-title>Nombre(s): {{ historial.patient.firstName }}</mat-card-title>
-              <mat-card-title>Apellido(s): {{ historial.patient.lastName }}</mat-card-title>
-              <mat-card-title>Domicilio(s): {{ historial.patient.address}}</mat-card-title>
-              <mat-card-title>Correo: {{ historial.patient.email }}</mat-card-title>
-              <mat-card-title>Celular: {{ historial.patient.cellNumber }}</mat-card-title>
-              <mat-card-title>Telefono: {{ historial.patient.phoneNumber }}</mat-card-title>
-            </mat-card-header>
-          </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="box-row">
-              <mat-card-header>
-                <mat-card-title>Historial Clinico</mat-card-title>
-              </mat-card-header>
-              <div id="editor">
-            </div>
-            </div>
-          </div>
       </div>
-    </mat-card>
+      <div class="col-xs-8">
+        <div class="box-row">
+          <mat-card-header>
+            <mat-card-title
+              >Nombre(s): {{ historial.patient.firstName }}</mat-card-title
+            >
+            <mat-card-title
+              >Apellido(s): {{ historial.patient.lastName }}</mat-card-title
+            >
+            <mat-card-title
+              >Domicilio(s): {{ historial.patient.address }}</mat-card-title
+            >
+            <mat-card-title
+              >Correo: {{ historial.patient.email }}</mat-card-title
+            >
+            <mat-card-title
+              >Celular: {{ historial.patient.cellNumber }}</mat-card-title
+            >
+            <mat-card-title
+              >Telefono: {{ historial.patient.phoneNumber }}</mat-card-title
+            >
+          </mat-card-header>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="box-row">
+          <mat-card-header>
+            <mat-card-title>Historial Clinico</mat-card-title>
+          </mat-card-header>
+          <div id="editor"></div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div *ngIf="!historial">
+  <div class="col-xs-8">
+    <div class="box-row">
+      <mat-card-header>
+        <mat-card-title
+          >No tiene Historial</mat-card-title
+        >
+      </mat-card-header>
+    </div>
   </div>
-  
+</div>

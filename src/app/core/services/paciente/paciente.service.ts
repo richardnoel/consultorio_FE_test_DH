@@ -17,4 +17,8 @@ export class PacienteService {
   getPaciente(id: string) {
     return this.http.get<Paciente>( environment.url_api + '/patients/'+id);
   }
+
+  getPacientByName(name:string){
+    return this.http.get<Paciente[]>( environment.url_api + '/patients/name/'+ name);
+  }
 }
