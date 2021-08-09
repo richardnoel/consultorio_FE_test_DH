@@ -17,4 +17,8 @@ export class HistorialService {
   getHistorial(id: string) {
     return this.http.get<Historial>( environment.url_api + '/history/'+id);
   }
+
+  getHistorialPaciente(id: string) {
+    return this.http.get<Historial[]>( environment.url_api + '/history/patient/'+id);
+  }
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { MatBadgeModule, MatCardModule } from '@angular/material';
+import { MatBadgeModule, MatCardModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -23,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -35,6 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
     ReactiveFormsModule
   ]
 })

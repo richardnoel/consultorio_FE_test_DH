@@ -13,7 +13,7 @@ export class DoctorDetailComponent implements OnInit {
   doctor: Doctor;
   constructor(
     private route: ActivatedRoute,
-    private productsService: DoctorService
+    private doctorService: DoctorService
   ) { }
 
   ngOnInit() {
@@ -24,12 +24,11 @@ export class DoctorDetailComponent implements OnInit {
   }
   
   fetchDoctor(id:string){
-    this.productsService.getDoctor(id).subscribe(doctor => {
+    this.doctorService.getDoctor(id).subscribe(doctor => {
       this.doctor = doctor; 
     });
   }
 
-  
   getImage(image:string){
     let result:string = "";
     if(image){
