@@ -30,7 +30,7 @@ export class DoctorDetailComponent implements OnInit {
   }
 
   getImage(image:string){
-    let result:string = "";
+    let result:string = "assets/images/no-image.png";
     if(image){
       result = "data:image/png;base64,"+image;
     }

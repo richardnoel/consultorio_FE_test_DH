@@ -1,0 +1,23 @@
+$constas-images-max-size: 40px;
+$mat-cell-width: 1px;
+table {
+  width: 100%;
+}
+
+mat-row .mat-cell {
+  border-bottom: mat-cell-width solid transparent;
+  border-top: mat-cell-width solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.constas-images {
+    max-width: $constas-images-max-size;
+}

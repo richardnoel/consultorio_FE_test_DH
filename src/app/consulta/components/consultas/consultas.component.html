@@ -1,1 +1,99 @@
-<p>consultas works!</p>
+<div>
+  <div>
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Buscar por Id Doctor</mat-label>
+      <input matInput type="text" [(ngModel)]="searchValue" />
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchByDoctor()"
+      >
+        <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div>
+    <table mat-table [dataSource]="consultaList" class="mat-elevation-z8">
+      <ng-container matColumnDef="consultationId">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.consultationId }}</td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Documento</th>
+        <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="paciente">
+        <th mat-header-cell *matHeaderCellDef>Paciente</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="box-row">
+                <mat-card-subtitle
+                  >{{ element.patient.firstName }}
+                  {{ element.patient.lastName }}</mat-card-subtitle
+                >
+                <hr>
+                <mat-card-subtitle
+                  >Nro Doc.
+                  {{ element.patient.documentNumber }}</mat-card-subtitle
+                >
+                <hr>
+                <mat-card-subtitle
+                  >{{ element.patient.cellNumber }} |
+                  {{ element.patient.phoneNumber }}
+                </mat-card-subtitle>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="box-row">
+                <div class="crop-image" class="constas-images">
+                  <img [src]="getImage(element.patient.photo)" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="doctor">
+        <th mat-header-cell *matHeaderCellDef>Doctor</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="box-row">
+                <mat-card-subtitle
+                  >{{ element.doctor.firstName }}
+                  {{ element.doctor.lastName }}</mat-card-subtitle
+                >
+                <hr>
+                <mat-card-subtitle
+                  >{{ element.doctor.speciality}}</mat-card-subtitle
+                >
+                <hr>
+                <mat-card-subtitle
+                >{{ element.patient.cellNumber }} |
+                {{ element.patient.phoneNumber }}
+              </mat-card-subtitle>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="box-row">
+                <div class="crop-image" class="constas-images">
+                  <img [src]="getImage(element.doctor.photo)" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>
