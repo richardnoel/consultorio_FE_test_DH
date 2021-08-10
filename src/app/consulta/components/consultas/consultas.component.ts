@@ -27,6 +27,7 @@ export class ConsultasComponent implements OnInit {
   searchByDoctor(){
 
   }
+  
 
   getImage(image:string){
     let result:string = "assets/images/no-image.png";

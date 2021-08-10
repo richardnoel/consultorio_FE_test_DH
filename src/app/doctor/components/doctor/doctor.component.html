@@ -6,11 +6,7 @@
     <div class="crop-image">
       <img [src]="getImage(doctor.photo)" alt="">
     </div>
-    <!-- <mat-card-content>
-      <p>Registro Medico:  {{ doctor.medicalRegister }}</p>
-    </mat-card-content> -->
     <mat-card-actions>
       <a mat-raised-button [routerLink]="['/doctores', doctor.doctorId]">Ver detalle</a>
-      <button (click)="nuevaConsulta()" mat-raised-button color="primary">Pedir Consulta</button>
     </mat-card-actions>
   </mat-card>

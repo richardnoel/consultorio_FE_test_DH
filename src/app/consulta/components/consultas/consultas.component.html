@@ -1,18 +1,38 @@
 <div>
+
   <div>
-    <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label>Buscar por Id Doctor</mat-label>
-      <input matInput type="text" [(ngModel)]="searchValue" />
-      <button
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="searchByDoctor()"
-      >
-        <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
-      </button>
-    </mat-form-field>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="box-row">
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Buscar por Id Doctor</mat-label>
+            <input matInput type="text" [(ngModel)]="searchValue" />
+            <button
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="searchByDoctor()"
+            >
+              <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- <div class="col-xs-offset-6 col-xs-2">
+        <div class="box-row">
+          <br>
+          
+          <button mat-raised-button color="primary" [routerLink]="'nueva/consulta'">
+            Nueva Consulta
+            <mat-icon aria-hidden="false" aria-label="Search"
+            >add</mat-icon>
+          </button>
+        </div>
+      </div> -->
+    </div>
   </div>
+
   <div>
     <table mat-table [dataSource]="consultaList" class="mat-elevation-z8">
       <ng-container matColumnDef="consultationId">
