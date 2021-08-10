@@ -27,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatSelectModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -44,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatSelectModule,
     ReactiveFormsModule
   ]
 })

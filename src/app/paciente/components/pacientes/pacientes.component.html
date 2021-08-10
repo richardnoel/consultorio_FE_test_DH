@@ -22,12 +22,15 @@
 
       <div class="col-xs-offset-6 col-xs-2">
         <div class="box-row">
-          <br>
-          
-          <button mat-raised-button color="primary" [routerLink]="'nueva/paciente'">
+          <br />
+
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="'nueva/paciente'"
+          >
             Nueva Consulta
-            <mat-icon aria-hidden="false" aria-label="Search"
-            >add</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Search">add</mat-icon>
           </button>
         </div>
       </div>
@@ -55,8 +58,18 @@
         <th mat-header-cell *matHeaderCellDef>Celular</th>
         <td mat-cell *matCellDef="let element">{{ element.cellNumber }}</td>
       </ng-container>
+
       <ng-container matColumnDef="actions1">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <th mat-header-cell *matHeaderCellDef width='100'></th>
+        <td *matCellDef="let element">
+          <a mat-raised-button [routerLink]="['/pacientes/nueva/consulta/', element.patientId]"
+            >Nueva Consulta</a
+          >
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions2">
+        <th mat-header-cell *matHeaderCellDef width='100'></th>
         <td *matCellDef="let element">
           <a mat-raised-button [routerLink]="['/pacientes', element.patientId]"
             >Ver detalle</a
@@ -64,10 +77,14 @@
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="actions2">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <ng-container matColumnDef="actions3">
+        <th mat-header-cell *matHeaderCellDef width='100'></th>
         <td *matCellDef="let element">
-          <button mat-raised-button color="warn" (click)="removePaciente(element.patientId)">
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="removePaciente(element.patientId)"
+          >
             <mat-icon aria-hidden="false">delete</mat-icon>
           </button>
         </td>

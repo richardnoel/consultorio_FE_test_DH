@@ -1,0 +1,76 @@
+<mat-card *ngIf="paciente">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <mat-card-subtitle
+          >Nombre(s): {{ paciente.firstName }}</mat-card-subtitle
+        >
+
+        <mat-card-subtitle
+          >Apellido(s): {{ paciente.lastName }}</mat-card-subtitle
+        >
+      </div>
+      <div class="col-xs-4">
+        <mat-card-subtitle
+          >Telefono: {{ paciente.phoneNumber }}</mat-card-subtitle
+        >
+        <mat-card-subtitle>Correo: {{ paciente.email }}</mat-card-subtitle>
+
+        <mat-card-subtitle
+          >Celular: {{ paciente.cellNumber }}</mat-card-subtitle
+        >
+
+        <div class="col-xs-12">
+          <mat-card-subtitle
+            >Domicilio(s): {{ paciente.address }}</mat-card-subtitle
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<form
+  [formGroup]="consultaForm"
+  (ngSubmit)="saveConsulta($event)"
+  *ngIf="doctors.length"
+>
+  <mat-card *ngIf="paciente">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Doctor:</mat-label>
+            <mat-select [(value)]="selectedDoctor">
+              <mat-option
+                *ngFor="let doctor of doctors"
+                [value]="doctor.doctorId"
+              >
+                {{ doctor.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-4">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Fecha Consulta</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <input type="hidden" formControlName="patientId" />
+        </div>
+      </div>
+    </div>
+    <mat-card-actions>
+      <button mat-raised-button type="submit">Adicionar Consulta</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

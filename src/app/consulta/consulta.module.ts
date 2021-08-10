@@ -7,11 +7,10 @@ import { ConsultasComponent } from './components/consultas/consultas.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NuevaConsultaComponent } from './components/nueva-consulta/nueva-consulta.component';
 
 
 @NgModule({
-  declarations: [ConsultaComponent, ConsultaDetailComponent, ConsultasComponent, NuevaConsultaComponent],
+  declarations: [ConsultaComponent, ConsultaDetailComponent, ConsultasComponent],
   imports: [
     CommonModule,
     ConsultaRoutingModule,

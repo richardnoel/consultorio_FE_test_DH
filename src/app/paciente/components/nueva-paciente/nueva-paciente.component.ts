@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Doctor } from 'src/app/core/models/doctor.model';
+import { Paciente } from 'src/app/core/models/paciente.model';
 import { PacienteService } from 'src/app/core/services/paciente/paciente.service';
 
 @Component({
@@ -10,6 +12,7 @@ import { PacienteService } from 'src/app/core/services/paciente/paciente.service
 })
 export class NuevaPacienteComponent implements OnInit {
   pacienteForm: FormGroup;
+  
   constructor(
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,

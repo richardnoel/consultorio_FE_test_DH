@@ -26,4 +26,7 @@ export class ConsultaService {
     return this.http.get<Consulta[]>( environment.url_api + '/consultation/doctor/'+id);
   }
 
+  createConsulta(requesData:any){
+    return this.http.post<Consulta>( environment.url_api + '/consultation/save', requesData);
+  }
 }

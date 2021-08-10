@@ -8,10 +8,11 @@ import { MaterialModule } from '../material/material.module';
 import { PacienteRoutingModule } from './paciente-routing.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NuevaPacienteComponent } from './components/nueva-paciente/nueva-paciente.component';
+import { NuevaConsultaComponent } from './components/nueva-consulta/nueva-consulta.component';
 
 
 @NgModule({
-  declarations: [PacienteComponent, PacienteDetailComponent, PacientesComponent, NuevaPacienteComponent],
+  declarations: [PacienteComponent, PacienteDetailComponent, PacientesComponent, NuevaPacienteComponent, NuevaConsultaComponent],
   imports: [
     CommonModule,
     SharedModule,

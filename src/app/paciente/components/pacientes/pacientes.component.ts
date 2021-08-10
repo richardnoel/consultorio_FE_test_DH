@@ -9,7 +9,7 @@ import { PacienteService } from 'src/app/core/services/paciente/paciente.service
   styleUrls: ['./pacientes.component.scss']
 })
 export class PacientesComponent implements OnInit {
-  displayedColumns:string[] = ['idPaciente','documentNumber', 'firstName', 'lastName', 'cellNumber', 'actions1','actions2'];
+  displayedColumns:string[] = ['idPaciente','documentNumber', 'firstName', 'lastName', 'cellNumber', 'actions1' ,'actions2','actions3', ];
   pacientes: Paciente[] = [];
   paciente: Paciente;
   searchValue = '';

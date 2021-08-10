@@ -15,3 +15,7 @@ table {
   .demo-row-is-clicked {
     font-weight: bold;
   }
+
+  :host .mat-raised-button.mat-button-base{
+    margin-left: 50px;
+  }
