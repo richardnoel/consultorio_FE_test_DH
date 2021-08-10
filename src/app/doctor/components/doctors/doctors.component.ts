@@ -20,14 +20,12 @@ export class DoctorsComponent implements OnInit {
   }
 
   clickDoctor(id: number) {
-    console.log('product');
-    console.log(id);
+
   }
 
   fetchDoctor() {
     this.doctorService.getAllDoctors().subscribe(doctors => {
       this.doctors = doctors;
-      console.log(this.doctors);
     });
   }
 }

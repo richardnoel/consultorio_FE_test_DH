@@ -67,14 +67,11 @@ export class ProductsComponent implements OnInit {
   }
 
   clickProduct(id: number) {
-    console.log('product');
-    console.log(id);
   }
 
   fetchDoctor(){
     this.productsService.getAllDoctors().subscribe(doctors=>{
       this.doctors = doctors;
-      console.log(this.doctors);
     });
   }
 

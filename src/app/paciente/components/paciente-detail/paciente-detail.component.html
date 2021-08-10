@@ -1,48 +1,127 @@
 <div *ngIf="historial">
   <mat-card>
-    <div class="row">
-      <div class="col-xs-4">
-        <div class="box-row">
-          <div class="crop-image">
-            <img
-              *ngIf="historial.patient.photo"
-              [src]="getImage(historial.patient.photo)"
-              alt=""
-            />
-            <img src="assets/images/no-image.png" alt="" />
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="box-row">
+            <div class="crop-image">
+              <img
+                *ngIf="historial.patient.photo"
+                [src]="getImage(historial.patient.photo)"
+                alt=""
+              />
+              <img src="assets/images/no-image.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="box-row">
+            <mat-card-header>
+              <mat-card-title
+                >Cod Paciente: {{ historial.patient.patientId }}</mat-card-title
+              >
+              <mat-card-title
+                >Nombre(s): {{ historial.patient.firstName }}</mat-card-title
+              >
+              <mat-card-title
+                >Apellido(s): {{ historial.patient.lastName }}</mat-card-title
+              >
+              <mat-card-title
+                >Domicilio(s): {{ historial.patient.address }}</mat-card-title
+              >
+              <mat-card-title
+                >Correo: {{ historial.patient.email }}</mat-card-title
+              >
+              <mat-card-title
+                >Celular: {{ historial.patient.cellNumber }}</mat-card-title
+              >
+              <mat-card-title
+                >Telefono: {{ historial.patient.phoneNumber }}</mat-card-title
+              >
+            </mat-card-header>
           </div>
         </div>
       </div>
-      <div class="col-xs-8">
-        <div class="box-row">
-          <mat-card-header>
-            <mat-card-title
-              >Nombre(s): {{ historial.patient.firstName }}</mat-card-title
-            >
-            <mat-card-title
-              >Apellido(s): {{ historial.patient.lastName }}</mat-card-title
-            >
-            <mat-card-title
-              >Domicilio(s): {{ historial.patient.address }}</mat-card-title
-            >
-            <mat-card-title
-              >Correo: {{ historial.patient.email }}</mat-card-title
-            >
-            <mat-card-title
-              >Celular: {{ historial.patient.cellNumber }}</mat-card-title
-            >
-            <mat-card-title
-              >Telefono: {{ historial.patient.phoneNumber }}</mat-card-title
-            >
-          </mat-card-header>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box-row">
+            <mat-card-header>
+              <mat-card-title>Historial Clinico</mat-card-title>
+            </mat-card-header>
+            <div id="editor"></div>
+          </div>
         </div>
       </div>
-      <div class="col-xs-12">
-        <div class="box-row">
-          <mat-card-header>
-            <mat-card-title>Historial Clinico</mat-card-title>
-          </mat-card-header>
-          <div id="editor"></div>
+      <div class="row">
+        <div class="col-xs-12">
+          <br />
+          <mat-card-title *ngIf="consultaList.length">
+            <table
+              mat-table
+              [dataSource]="consultaList"
+              class="mat-elevation-z8"
+            >
+              <ng-container matColumnDef="consultationId">
+                <th mat-header-cell *matHeaderCellDef>Codigo</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.consultationId }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Fecha</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.date | date }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="doctor">
+                <th mat-header-cell *matHeaderCellDef>Doctor</th>
+                <td mat-cell *matCellDef="let element">
+                  <div class="row">
+                    <div class="col-xs-8">
+                      <div class="box-row">
+                        <mat-card-subtitle
+                          >{{ element.doctor.firstName }}
+                          {{ element.doctor.lastName }}</mat-card-subtitle
+                        >
+                        <hr />
+                        <mat-card-subtitle>{{
+                          element.doctor.speciality
+                        }}</mat-card-subtitle>
+                        <hr />
+                        <mat-card-subtitle
+                          >{{ element.doctor.cellNumber }}
+                        </mat-card-subtitle>
+                      </div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div class="box-row">
+                        <div class="crop-image" class="constas-images">
+                          <img [src]="getImage(element.doctor.photo)" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="prescription">
+                <th mat-header-cell *matHeaderCellDef>Prescripcion</th>
+                <td mat-cell *matCellDef="let element">
+                  <button
+                    (click)="getPrescripcion(element.consultationId)"
+                    mat-raised-button
+                    color="primary"
+                  >
+                    Prescripcion
+                  </button>
+                  <div></div>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </mat-card-title>
         </div>
       </div>
     </div>
@@ -52,9 +131,7 @@
   <div class="col-xs-8">
     <div class="box-row">
       <mat-card-header>
-        <mat-card-title
-          >No tiene Historial</mat-card-title
-        >
+        <mat-card-title>No tiene Historial</mat-card-title>
       </mat-card-header>
     </div>
   </div>

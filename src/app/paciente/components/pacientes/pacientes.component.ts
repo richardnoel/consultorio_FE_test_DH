@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Paciente } from 'src/app/core/models/paciente.model';
+import { ConsultaService } from 'src/app/core/services/consulta/consulta.service';
 import { PacienteService } from 'src/app/core/services/paciente/paciente.service';
 
 @Component({
@@ -28,7 +29,6 @@ export class PacientesComponent implements OnInit {
     if(this.searchValue){
       this.pacienteService.getPacientByName(this.searchValue).subscribe(pacientes =>{
         this.pacientes = pacientes;
-        console.log(this.pacientes);
       });
     }else if(this.searchValue == ''){
       this.fetchPaciente();
@@ -38,7 +38,6 @@ export class PacientesComponent implements OnInit {
   fetchPaciente(){
     this.pacienteService.getAllPacientes().subscribe(pacientes =>{
       this.pacientes = pacientes;
-      console.log(this.pacientes);
     });
   }
 

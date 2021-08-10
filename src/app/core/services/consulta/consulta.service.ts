@@ -17,4 +17,9 @@ export class ConsultaService {
   getConsulta(id: string) {
     return this.http.get<Consulta>( environment.url_api + '/consultation/'+id);
   }
+
+  getConsultaPaciente(id: string) {
+    return this.http.get<Consulta[]>( environment.url_api + '/consultation/patient/'+id);
+  }
+
 }

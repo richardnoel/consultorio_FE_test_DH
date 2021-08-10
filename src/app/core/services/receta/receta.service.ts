@@ -14,6 +14,12 @@ export class RecetaService {
     return this.http.get<Receta[]>( environment.url_api + '/prescription/all');
   }
 
+
+  getAllRecetasConsulta(id: number) {
+    return this.http.get<Receta[]>( environment.url_api + '/prescription/consultation/'+id);
+  }
+
+
   getReceta(id: string) {
     return this.http.get<Receta>( environment.url_api + '/prescription/'+id);
   }

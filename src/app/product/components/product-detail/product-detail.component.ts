@@ -29,7 +29,6 @@ export class ProductDetailComponent implements OnInit {
   
   fetchDoctor(id:string){
     this.productsService.getDoctor(id).subscribe(doctor => {
-      console.log(doctor);
     });
   }
 

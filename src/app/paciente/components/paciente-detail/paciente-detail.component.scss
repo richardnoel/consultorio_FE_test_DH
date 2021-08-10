@@ -1,0 +1,9 @@
+$constas-images-max-size: 40px;
+$table-doctor-details: 100%;
+.constas-images {
+  max-width: $constas-images-max-size;
+}
+
+:host table{
+    width: $table-doctor-details;
+}
