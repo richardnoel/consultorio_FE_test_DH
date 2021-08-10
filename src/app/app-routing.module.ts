@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/admin/pacientes',
         pathMatch: 'full',
       },
       {
@@ -23,14 +23,7 @@ const routes: Routes = [
         path: 'contact',
         canActivate: [AdminGuard],
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
-      },
-      {
-        path: 'products',
-        canActivate: [AdminGuard],
-        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
-      },
-
-      
+      },    
       
       {
         path: 'doctores',
