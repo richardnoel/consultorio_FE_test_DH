@@ -55,6 +55,10 @@
       <div class="row">
         <div class="col-xs-12">
           <br />
+          <mat-card-header>
+            <mat-card-title>Hisorial de Citas</mat-card-title>
+          </mat-card-header>
+          <br />
           <mat-card-title *ngIf="consultaList.length">
             <table
               mat-table
@@ -108,13 +112,18 @@
                 <th mat-header-cell *matHeaderCellDef>Prescripcion</th>
                 <td mat-cell *matCellDef="let element">
                   <button
-                    (click)="getPrescripcion(element.consultationId)"
+                    (click)="getPrescripcion(element, element.consultationId)"
                     mat-raised-button
-                    color="primary"
+                    color="basic"
                   >
-                    Prescripcion
+                  <mat-icon>visibility</mat-icon>  Prescripcion
                   </button>
-                  <div></div>
+                  <ul>
+                    <li *ngFor="let item of element.recetas">
+                      {{item.prescriptionId}}
+                      {{item.description}}
+                    </li>
+                  </ul>
                 </td>
               </ng-container>
 

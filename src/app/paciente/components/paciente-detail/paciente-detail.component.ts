@@ -66,9 +66,19 @@ export class PacienteDetailComponent implements OnInit {
     });
   }
 
-  getPrescripcion(consultationId:string):any{
+  getPrescripcion(element:any , consultationId:string):any{
     this.recetaService.getAllRecetasConsulta(Number(consultationId)).subscribe(recetas=>{
-      console.log(recetas);
+      if(recetas && recetas.length){
+        element.recetas = recetas;
+      }else{
+        element.recetas = [
+          {
+            prescriptionId: null,
+            description: 'No tiene prescripcion para la cita'
+          }
+        ];
+      }
+      
     });
   }
 

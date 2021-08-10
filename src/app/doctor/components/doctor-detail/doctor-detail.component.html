@@ -13,13 +13,80 @@
           <mat-card-header>
             <mat-card-title>Nombre(s): {{ doctor.firstName }}</mat-card-title>
             <mat-card-title>Apellido(s): {{ doctor.lastName }}</mat-card-title>
-            <mat-card-title>Domicilio(s): {{ doctor.address}}</mat-card-title>
+            <mat-card-title>Domicilio(s): {{ doctor.address }}</mat-card-title>
             <mat-card-title>Correo: {{ doctor.email }}</mat-card-title>
             <mat-card-title>Celular: {{ doctor.cellNumber }}</mat-card-title>
             <mat-card-title>Telefono: {{ doctor.phoneNumber }}</mat-card-title>
-            <mat-card-title>Especialidad: {{ doctor.speciality }}</mat-card-title>
+            <mat-card-title
+              >Especialidad: {{ doctor.speciality }}</mat-card-title
+            >
           </mat-card-header>
         </div>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="row">
+      <div class="col-xs-12">
+        <br />
+        <mat-card-header>
+          <mat-card-title>Hisorial de Pacientes Atendidos</mat-card-title>
+        </mat-card-header>
+        <br />
+        <mat-card-title *ngIf="consultaList.length">
+          <table mat-table [dataSource]="consultaList" class="mat-elevation-z8">
+            <ng-container matColumnDef="consultationId">
+              <th mat-header-cell *matHeaderCellDef>Codigo</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.consultationId }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Fecha</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.date | date }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="patient">
+              <th mat-header-cell *matHeaderCellDef>Doctor</th>
+              <td mat-cell *matCellDef="let element">
+                <div class="row">
+                  <div class="col-xs-8">
+                    <div class="box-row">
+                      <mat-card-subtitle
+                        >{{ element.patient.firstName }}
+                        {{ element.patient.lastName }}</mat-card-subtitle
+                      >
+                      <hr />
+                      <mat-card-subtitle
+                        >{{ element.doctor.cellNumber }}
+                      </mat-card-subtitle>
+                    </div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="box-row">
+                      <div class="crop-image" class="constas-images">
+                        <img [src]="getImage(element.patient.photo)" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="prescription">
+              <th mat-header-cell *matHeaderCellDef>Prescripcion</th>
+              <td mat-cell *matCellDef="let element">
+                <a mat-raised-button [routerLink]="['/pacientes', element.patient.patientId]"
+                >Ver detalle</a
+              >
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </mat-card-title>
       </div>
     </div>
   </mat-card>
